@@ -6,6 +6,10 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 var moment = require('moment')
+var methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
+
 
 
 // Livereload---reload the page automatically when you make changes to the files
@@ -67,16 +71,28 @@ app.get('/user/add.html', (req, res) => {
     res.render('user/add')
 })
 
+//-------get the data from the database and show it in the edit page
+app.get('/edit/:id', (req, res) => {
+    Customer.findById(req.params.id)
+        .then((result) => {
+            res.render('user/edit', { id: req.params.id, person: result })
+
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
 
 app.get('/user/:id', (req, res) => {
     Customer.findById(req.params.id)
-    .then((result) => {
-        res.render('user/view', {one:result,moment:moment})
-        
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+        .then((result) => {
+            res.render('user/view', { one: result, moment: moment })
+
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 })
 
 
@@ -85,7 +101,24 @@ app.get('/user/:id', (req, res) => {
 //------------send data to the database
 app.post('/user/add.html', (req, res) => {
     console.log(req.body);
-    Customer.create(req.body).then(() => { res.redirect("/") })
+    const data = req.body
+    if (!data || !data.name || data.name.trim() === "") {
+        console.log("Name is required");
+
+    }
+    Customer.create(req.body)
+        .then(() => { res.redirect("/") })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+//----update the data in the database
+//put requests
+app.put('/edit/:id', (req, res) => {
+    console.log(req.body);
+    Customer.updateOne({ _id: req.params.id }, req.body)
+        .then(() => { res.redirect("/") })
         .catch((err) => {
             console.log(err);
         })
@@ -94,5 +127,16 @@ app.post('/user/add.html', (req, res) => {
 
 
 
-//put requests
-//-----------update the data
+//delete requests
+app.delete('/delete/:id', (req, res) => {
+    Customer.deleteOne({ _id: req.params.id })
+        .then(() => { res.redirect("/") })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+
+
+
+//search request
