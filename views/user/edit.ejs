@@ -305,7 +305,7 @@
         <nav class="px-2 mt-4 d-flex flex-wrap justify-content-between" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Ali Hassan</li>
+            <li class="breadcrumb-item active" aria-current="page"><%= person.firstName %> <%= person.lastName %></li>
           </ol>
 
 
@@ -319,11 +319,13 @@
 
 
 
-        <form class="mx-0 row gx-3 gy-4 mt-2">
+        <form  action="/edit/<%= person._id %>?_method=PUT" method="post" class="mx-0 row gx-3 gy-4 mt-2">
           <div class="col-md-6">
             <label for="inputfirstName4" class="form-label">First Name:</label>
             <input
-              placeholder="Ali..."
+            name="firstName"
+            value="<%= person.firstName %>"
+              placeholder="Adam..."
               type="text"
               class="form-control"
               id="inputfirstName4"
@@ -332,7 +334,9 @@
           <div class="col-md-6">
             <label for="inputlastName4" class="form-label">Last Name:</label>
             <input
-              placeholder="Hassan..."
+            name="lastName"
+            value="<%= person.lastName %>"
+              placeholder="Isdaouene..."
               type="text"
               class="form-control"
               id="inputlastName4"
@@ -342,6 +346,8 @@
           <div class="col-md-6">
             <label for="inputemail4" class="form-label">Email:</label>
             <input
+            name="email"
+            value="<%= person.email %>"
               placeholder="ali@gmail.com"
               type="email"
               class="form-control"
@@ -351,6 +357,8 @@
           <div class="col-md-6">
             <label for="inputtele4" class="form-label">Telephone:</label>
             <input
+            name="mobileNumber"
+            value="<%= person.mobileNumber %>"
               placeholder="011987899"
               type="number"
               class="form-control"
@@ -362,6 +370,8 @@
             <div class="col-md-6">
               <label for="inputage4" class="form-label">Age:</label>
               <input
+                name="age"
+              value="<%= person.age %>"
                 placeholder="Your Age: ..."
                 type="number"
                 class="form-control"
@@ -373,8 +383,8 @@
           <div>
             <div class="col-md-6">
               <label for="inputCountry" class="form-label">Country:</label>
-              <select id="inputCountry" class="form-select">
-                <option selected hidden disabled>Choose here ...</option>
+              <select name="country" id="inputCountry" class="form-select">
+                <option  selected hidden disabled><%= person.country %></option>
 
                 <option>Morocco</option>
                 <option>Egypt</option>
@@ -385,8 +395,8 @@
           <div>
             <div class="col-md-6">
               <label for="inputGender" class="form-label">Gender:</label>
-              <select id="inputGender" class="form-select">
-                <option selected hidden disabled>Choose here ...</option>
+              <select name="gender" id="inputGender" class="form-select">
+                <option selected hidden disabled><%= person.gender %></option>
                 <option>Male</option>
                 <option>Female</option>
               </select>
@@ -430,7 +440,7 @@
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body">Are you sure you want to continue delete the customer?</div>
+            <div class="modal-body">Are you sure you want to continue delete the one?</div>
             <div class="modal-footer">
               <button
                 type="button"
@@ -439,9 +449,10 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-danger">
+              <form action="/delete/<%= person._id %>?_method=DELETE" method="post">
+              <button type="submit" class="btn btn-danger">
                 Delete
-              </button>
+              </button></form>
             </div>
           </div>
         </div>
