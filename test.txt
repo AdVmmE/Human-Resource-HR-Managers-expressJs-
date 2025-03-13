@@ -1,0 +1,176 @@
+req.body
+
+{
+firstName
+lastName
+email
+mobileNumber
+age
+country 
+gender
+}
+
+
+[
+  {
+    _id: new ObjectId('67d1ff3ef5d1a7a314ab9dd7'),
+    firstName: 'adam',
+    lastName: 'isdaoune',
+    email: 'isdaouen111@gmail.com',
+    mobileNumber: '0620371807',
+    age: 19,
+    country: 'Morocco',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d1ff9d97d4154123b1f2c2'),
+    firstName: 'adam',
+    lastName: 'isdaoune',
+    email: 'isdaouen111@gmail.com',
+    mobileNumber: '0620371807',
+    age: 19,
+    country: 'Morocco',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d1ffd297d4154123b1f2c4'),
+    firstName: 'Hamza ',
+    lastName: 'hwari',
+    email: 'isdaouen000@gmail.com',
+    mobileNumber: '0620371807',
+    age: 33,
+    country: 'Japan',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d200e597eb2c0b5f5d92ab'),
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    lastName: 'isdaoune',
+    email: 'isdaouen111@gmail.com',
+    mobileNumber: '0620371807',
+    age: 19,
+    country: 'Morocco',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d1ffd297d4154123b1f2c4'),
+    firstName: 'Hamza ',
+    lastName: 'hwari',
+    email: 'isdaouen000@gmail.com',
+    mobileNumber: '0620371807',
+    age: 33,
+    country: 'Japan',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d200e597eb2c0b5f5d92ab'),
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    email: 'isdaouen111@gmail.com',
+    mobileNumber: '0620371807',
+    age: 19,
+    country: 'Morocco',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d1ffd297d4154123b1f2c4'),
+    firstName: 'Hamza ',
+    lastName: 'hwari',
+    email: 'isdaouen000@gmail.com',
+    mobileNumber: '0620371807',
+    age: 33,
+    country: 'Japan',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d200e597eb2c0b5f5d92ab'),
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d1ffd297d4154123b1f2c4'),
+    firstName: 'Hamza ',
+    lastName: 'hwari',
+    email: 'isdaouen000@gmail.com',
+    mobileNumber: '0620371807',
+    age: 33,
+    country: 'Japan',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d200e597eb2c0b5f5d92ab'),
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    _id: new ObjectId('67d1ffd297d4154123b1f2c4'),
+    firstName: 'Hamza ',
+    lastName: 'hwari',
+    email: 'isdaouen000@gmail.com',
+    mobileNumber: '0620371807',
+    age: 33,
+    country: 'Japan',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d200e597eb2c0b5f5d92ab'),
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    country: 'Algeria',
+    gender: 'Male',
+    __v: 0
+  }
+    country: 'Japan',
+    gender: 'Male',
+    __v: 0
+  },
+  {
+    _id: new ObjectId('67d200e597eb2c0b5f5d92ab'),
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    country: 'Algeria',
+    gender: 'Male',
+    __v: 0
+  }
+    firstName: 'bilal',
+    lastName: 'isdaoune',
+    email: 'bilal@gmail.com',
+    mobileNumber: '0662873183',
+    age: 22,
+    country: 'Algeria',
+    gender: 'Male',
+    __v: 0
+  }
+    country: 'Algeria',
+    gender: 'Male',
+    __v: 0
+  }
+]
