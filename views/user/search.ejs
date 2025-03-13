@@ -284,11 +284,12 @@
             class="container-fluid justify-content-center justify-content-md-between"
           >
             <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0"
-              >Course <sup>4</sup> arab</a
+              >Advxm <sup></sup> Dashboard</a
             >
 
             <form class="d-flex" role="search">
               <input
+                
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
@@ -301,6 +302,12 @@
           </div>
         </nav>
 
+
+
+
+        <% if (arr.length===0) { %>
+          <h1 class="p-3 " style="text-align: center; margin-top: 4rem; text-decoration: underline; ">User Not Found </h1>
+          <% }else{ %>
         <table
           style="width: 99%"
           class="text-center mx-auto table mt-5 table-striped table-bordered"
@@ -316,43 +323,34 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>test1</td>
-              <td>test2</td>
-              <td>@test3</td>
+            <% arr.forEach((item,index) => { %>
+              <tr>
+                <th scope="row"><%= index+1 %></th>
+                <td><%=item.firstName  %> <%=item.lastName  %></td>
+                <td><%=item.gender  %></td>
+                <td><%=item.country  %></td>
+  
+               
+                <td>
+                  <a data-bs-toggle="tooltip" data-bs-title="View details" data-bs-placement="top"
+                    class="btn btn-primary btn-sm"  href="./user/<%= item._id %>"><i class="bi bi-eye"></i></a>
 
-              <td>
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="View details"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/view.html"
-                  ><i class="bi bi-eye"></i
-                ></a>
-
-                <a
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Edit user"
-                  data-bs-placement="top"
-                  class="btn btn-primary btn-sm"
-                  href="./user/edit.html"
-                >
-                  <i class="bi bi-pencil"></i>
-                </a>
-                <button
-                  data-bs-toggle="tooltip"
-                  data-bs-title="Delete user"
-                  data-bs-placement="top"
-                  class="btn btn-danger btn-sm"
-                >
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
+                  <a data-bs-toggle="tooltip" data-bs-title="Edit user" data-bs-placement="top"
+                    class="btn btn-primary btn-sm" href="./edit/<%= item._id %>">
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                  <form action="/delete/<%= item._id %>?_method=DELETE" method="POST" style="display: inline;">
+                  <button data-bs-toggle="tooltip" data-bs-title="Delete user" data-bs-placement="top"
+                    class="btn btn-danger btn-sm">
+                    <i class="bi bi-trash"></i>
+                  </button></form>
+                </td>
+              </tr>
+            <% }) %>
+            
           </tbody>
         </table>
+        <% } %>
       </section>
     </main>
     <script src="../js/bootstrap.bundle.min.js"></script>

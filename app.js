@@ -32,7 +32,7 @@ livereloadServer.server.once('connection', () => {
 
 
 // MongoDB connection
-mongoose.connect("mongodb+srv://advxm:yzxziGCWZoUEYZ9H@cluster0.06b0d.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://advxm:yzxziGCWZoUEYZ9H@cluster0.06b0d.mongodb.net/all-data?retryWrites=true&w=majority&appName=Cluster0")//enter ur link from mongodb cloud server
     .then(() => {
         app.listen(port, () => {
             console.log(`http://localhost:${port}`);
@@ -101,17 +101,28 @@ app.get('/user/:id', (req, res) => {
 //------------send data to the database
 app.post('/user/add.html', (req, res) => {
     console.log(req.body);
-    const data = req.body
-    if (!data || !data.name || data.name.trim() === "") {
-        console.log("Name is required");
 
-    }
     Customer.create(req.body)
         .then(() => { res.redirect("/") })
         .catch((err) => {
             console.log(err);
         })
 })
+
+
+app.post('/search', (req, res) => {
+    console.log(req.body);
+    Customer.find({ firstName: req.body.searchText })
+        .then((result) => {
+            console.log(result);
+            res.render('user/search', { arr: result, moment: moment })
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})
+
+
 
 //----update the data in the database
 //put requests
@@ -123,6 +134,8 @@ app.put('/edit/:id', (req, res) => {
             console.log(err);
         })
 })
+
+
 
 
 
@@ -139,4 +152,6 @@ app.delete('/delete/:id', (req, res) => {
 
 
 
-//search request
+app.use((req, res) => {
+    res.status(404).sendFile(__dirname + './views/404.html');
+});

@@ -236,8 +236,8 @@
           <a class="navbar-brand fw-medium fs-3 mb-1 mb-md-0">
             Advxm <sup></sup> Dashbord</a>
 
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+          <form action="/search" method="post" class="d-flex" role="search">
+            <input required name="searchText" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
             <button class="btn btn-outline-success" type="submit">
               Search
             </button>
