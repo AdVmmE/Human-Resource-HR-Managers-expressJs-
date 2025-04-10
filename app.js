@@ -110,6 +110,7 @@ app.post('/user/add.html', (req, res) => {
         })
 })
 
+//seacrch seactiaddadadaadad
 
 app.post('/search', (req, res) => {
     console.log(req.body);
